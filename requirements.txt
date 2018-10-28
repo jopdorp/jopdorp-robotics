@@ -1,0 +1,6 @@
+JopdorpRobot
+simple_pid==0.1.4
+inputs==0.5
+pygame==1.9.1
+ikpy==2.0
+ikpy[plot]==2.0
