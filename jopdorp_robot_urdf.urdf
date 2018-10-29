@@ -46,38 +46,6 @@
     <origin xyz="0 0.3 0"/>
   </joint>
 
-  <!-- <link name="elbow_control_link">
-    <visual>
-      <geometry>
-        <box size="0.6 0.1 0.2"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white"/>
-    </visual>
-  </link>
-
-  <joint name="stretch_elbow_from_shoulder" type="fixed">
-    <parent link="shoulder_block"/>
-    <child link="elbow_control_link"/>
-    <origin xyz="0 0 0"/>
-  </joint>
-
-  <link name="upper_arm_parallel">
-    <visual>
-      <geometry>
-        <box size="0.6 0.1 0.2"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white"/>
-    </visual>
-  </link>
-
-  <joint name="elbow_stretch_corner_joint" type="fixed">
-    <parent link="elbow_control_link"/>
-    <child link="upper_arm_parallel"/>
-    <origin xyz="0 0 0"/>
-  </joint> -->
-
   <link name="elbow_block">
     <visual>
       <geometry>
@@ -93,12 +61,6 @@
     <child link="elbow_block"/>
     <origin xyz="0 -1 0.2"/>
   </joint>
-
-  <!-- <joint name="outer_elbow" type="fixed">
-    <parent link="upper_arm_parallel"/>
-    <child link="elbow_block"/>
-    <origin xyz="0 0 0"/>
-  </joint> -->
 
   <link name="lower_arm">
     <visual>
