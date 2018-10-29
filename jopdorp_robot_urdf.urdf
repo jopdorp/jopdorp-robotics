@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<robot name="materials">
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <link name="base">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="shoulder_block">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="shoulder_rotate" type="fixed">
+    <parent link="base"/>
+    <child link="shoulder_block"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+  <link name="upper_arm">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="shoulder_stretch" type="fixed">
+    <parent link="shoulder_block"/>
+    <child link="upper_arm"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+  <link name="elbow_control_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="stretch_elbow_from_shoulder" type="fixed">
+    <parent link="shoulder_block"/>
+    <child link="elbow_control"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+  <link name="upper_arm_parallel">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="elbow_stretch_corner_joint" type="fixed">
+    <parent link="elbow_control_link"/>
+    <child link="upper_arm_parallel"/>
+    <origin xyz="0 -0.22 0.25"/>
+  </joint>
+
+  <link name="elbow_block">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="stretch_elbow" type="fixed">
+    <parent link="upper_arm_parallel"/>
+    <child link="elbow_block"/>
+    <origin xyz="0 0.22 0.25"/>
+  </joint>
+
+  <link name="lower_arm">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="rotate_elbow" type="fixed">
+    <parent link="elbow_block"/>
+    <child link="lower_arm"/>
+    <origin xyz="0 0.22 0.25"/>
+  </joint>
+
+  <link name="wrist_block">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="wrist" type="fixed">
+    <parent link="lower_arm"/>
+    <child link="wrist_block"/>
+    <origin xyz="0 0.22 0.25"/>
+  </joint>
+
+  <link name="hand">
+    <visual>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="close_hand" type="fixed">
+    <parent link="wrist_block"/>
+    <child link="hand"/>
+    <origin xyz="0 0.22 0.25"/>
+  </joint>
+
+</robot>
